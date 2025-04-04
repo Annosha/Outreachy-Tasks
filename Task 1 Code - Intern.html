@@ -27,23 +27,25 @@
                     {"page_id": 5886895, "creation_date": "2018-12-12", "title": "Vãngri Kaingáng"},
                     {"page_id": 6549130, "creation_date": "2021-04-10", "title": "Zezico Guajajara"},
                 ];
-                
 
-                const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let resultsContainer = document.getElementById("results");
+                let resultsContainer = document.getElementById("results");
 
-    data.forEach(item => {
-        let dateParts = item.creation_date.split("-");
-        let year = dateParts[0];
-        let month = monthNames[parseInt(dateParts[1]) - 1];
-        let day = parseInt(dateParts[2]);
-        
-        let formattedResult = `Article "${item.title}" (Page ID ${item.page_id}) was created at ${month} ${day}, ${year}.`;
-        let paragraph = document.createElement("p");
-        paragraph.textContent = formattedResult;
-        resultsContainer.appendChild(paragraph);
-    });
-});
+                const formatter = new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                data.forEach(item => {
+                    let date = new Date(item.creation_date);
+                    let formattedDate = formatter.format(date);
+
+                    let formattedResult = `Article "${item.title}" (Page ID ${item.page_id}) was created at ${formattedDate}.`;
+                    let paragraph = document.createElement("p");
+                    paragraph.textContent = formattedResult;
+                    resultsContainer.appendChild(paragraph);
+                });
+            });
         </script>
         <script>
             document.getElementById("code").innerText = document.getElementById("task_id").text;
