@@ -1,9 +1,9 @@
 Status Code,URL
-(ERROR),http://jogandocomelas.com.br/rosana-augusto-jogadora-do-santos-e-da-selecao-brasileira-anuncia-aposentadoria/
-(ERROR),http://maquinadoesporte.uol.com.br/artigo/por-time-feminino-corinthians-faz-parceria-com-gremio-osasco-audax_29655.html
-(ERROR),http://mngr.saopaulofc.net/media/164076/spfc_book_futebol_feminino_paulista_1997.pdf
-(ERROR),http://paginasmemoria.cruzeirodosul.inf.br/paginas/2000/12/18/20001218028520espa0800cruz.pdf
-(ERROR),http://sportsillustrated.cnn.com/soccer/wusa/2001/championship/news/2001/08/25/wusa_championship/
+"((ERROR) HTTPConnectionPool(host='jogandocomelas.com.br', port=80): Max retries exceeded with url: /rosana-augusto-jogadora-do-santos-e-da-selecao-brasileira-anuncia-aposentadoria/ (Caused by NameResolutionError(""<urllib3.connection.HTTPConnection object at 0x000001DE5700EF00>: Failed to resolve 'jogandocomelas.com.br' ([Errno 11001] getaddrinfo failed)"")))",http://jogandocomelas.com.br/rosana-augusto-jogadora-do-santos-e-da-selecao-brasileira-anuncia-aposentadoria/
+"((ERROR) HTTPConnectionPool(host='maquinadoesporte.uol.com.br', port=80): Max retries exceeded with url: /artigo/por-time-feminino-corinthians-faz-parceria-com-gremio-osasco-audax_29655.html (Caused by NameResolutionError(""<urllib3.connection.HTTPConnection object at 0x000001DE570509B0>: Failed to resolve 'maquinadoesporte.uol.com.br' ([Errno 11001] getaddrinfo failed)"")))",http://maquinadoesporte.uol.com.br/artigo/por-time-feminino-corinthians-faz-parceria-com-gremio-osasco-audax_29655.html
+"((ERROR) HTTPConnectionPool(host='mngr.saopaulofc.net', port=80): Max retries exceeded with url: /media/164076/spfc_book_futebol_feminino_paulista_1997.pdf (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001DE5700E5A0>, 'Connection to mngr.saopaulofc.net timed out. (connect timeout=5)')))",http://mngr.saopaulofc.net/media/164076/spfc_book_futebol_feminino_paulista_1997.pdf
+"((ERROR) HTTPConnectionPool(host='paginasmemoria.cruzeirodosul.inf.br', port=80): Max retries exceeded with url: /paginas/2000/12/18/20001218028520espa0800cruz.pdf (Caused by NameResolutionError(""<urllib3.connection.HTTPConnection object at 0x000001DE57051A00>: Failed to resolve 'paginasmemoria.cruzeirodosul.inf.br' ([Errno 11001] getaddrinfo failed)"")))",http://paginasmemoria.cruzeirodosul.inf.br/paginas/2000/12/18/20001218028520espa0800cruz.pdf
+"((ERROR) HTTPConnectionPool(host='sportsillustrated.cnn.com', port=80): Max retries exceeded with url: /soccer/wusa/2001/championship/news/2001/08/25/wusa_championship/ (Caused by NameResolutionError(""<urllib3.connection.HTTPConnection object at 0x000001DE5700FD10>: Failed to resolve 'sportsillustrated.cnn.com' ([Errno 11001] getaddrinfo failed)"")))",http://sportsillustrated.cnn.com/soccer/wusa/2001/championship/news/2001/08/25/wusa_championship/
 (200),http://sportv.globo.com/site/noticia/2011/11/em-casa-sao-jose-vence-colo-colo-e-e-campeao-da-libertadores-feminina.html
 (200),http://sportv.globo.com/site/programas/rio-2016/noticia/2016/08/apos-vitoria-formiga-supera-cafu-em-jogos-pela-selecao-nunca-imaginei.html
 (403),http://www.bayareasportsdrive.com/soccer/sissi.htm
@@ -11,17 +11,17 @@ Status Code,URL
 (404),http://www.ecuafutbol.org/copa_america/team.aspx?ID=BRA
 (503),http://www.espn.com.br/noticia/556235_ferroviaria-vence-colo-colo-por-3-a-1-e-conquista-libertadores-feminina
 (503),http://www.espn.com.br/noticia/667127_aos-38-anos-volante-formiga-acerta-com-o-paris-saint-germain
-(ERROR),http://www.femininodobrasil.com/2017/02/chu-santos-uma-jogadora-completa.html
-(ERROR),http://www.futeboldabahia.com.br/Feminino.html
-(ERROR),http://www.periodicos.letras.ufmg.br/index.php/fulia/issue/view/677/showToc
+"((ERROR) HTTPConnectionPool(host='www.femininodobrasil.com', port=80): Max retries exceeded with url: /2017/02/chu-santos-uma-jogadora-completa.html (Caused by NameResolutionError(""<urllib3.connection.HTTPConnection object at 0x000001DE57052720>: Failed to resolve 'www.femininodobrasil.com' ([Errno 11001] getaddrinfo failed)"")))",http://www.femininodobrasil.com/2017/02/chu-santos-uma-jogadora-completa.html
+"((ERROR) HTTPConnectionPool(host='www.futeboldabahia.com.br', port=80): Max retries exceeded with url: /Feminino.html (Caused by NameResolutionError(""<urllib3.connection.HTTPConnection object at 0x000001DE550032C0>: Failed to resolve 'www.futeboldabahia.com.br' ([Errno 11001] getaddrinfo failed)"")))",http://www.futeboldabahia.com.br/Feminino.html
+"((ERROR) HTTPConnectionPool(host='www.periodicos.letras.ufmg.br', port=80): Read timed out. (read timeout=5))",http://www.periodicos.letras.ufmg.br/index.php/fulia/issue/view/677/showToc
 (200),http://www.saadec.com.br/noticiamostra.php?id=223
 (200),http://www.saopaulofc.net/spfcpedia/conquistas
-(200),http://www.wpsl.info/news/04_0121.html
+"((ERROR) HTTPConnectionPool(host='www.wpsl.info', port=80): Read timed out. (read timeout=5))",http://www.wpsl.info/news/04_0121.html
 (200),https://agenciabrasil.ebc.com.br/esportes/noticia/2020-02/bia-zaneratto-chega-ao-palmeiras-em-momento-magico-do-futebol-feminino
 (200),https://avai.com.br/novo/julia-bianchi-dedicou-primeiro-gol-do-brasileirao-2020-ao-avo/
 (200),https://br.search.yahoo.com/?fr2=p:sportsrd
 (200),https://claudia.abril.com.br/famosos/conheca-formiga-a-jogadora-recordista-em-copas-da-selecao-brasileira/
-(ERROR),https://dados.museudofutebol.org.br/#/tipo:personalidades/614464
+"((ERROR) HTTPSConnectionPool(host='crfb.museudofutebol.org', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, ""[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'crfb.museudofutebol.org'. (_ssl.c:1000)""))))",https://dados.museudofutebol.org.br/#/tipo:personalidades/614464
 (200),https://diariodoverdao.com.br/palmeirenses-fazem-campanha-por-volta-de-bia-zaneratto-que-esta-sem-clube/
 (200),https://dibradoras.blogosfera.uol.com.br/2019/08/22/da-roca-para-a-selecao-quem-e-maravilha-1a-preparadora-de-goleiras-da-cbf/
 (200),https://dibradoras.com.br/2020/12/05/time-de-tradicao-no-feminino-avai-kindermann-tem-craques-formadas-em-casa/
@@ -63,7 +63,7 @@ Status Code,URL
 (200),https://sportbuzz.uol.com.br/noticias/futebol/conheca-sissi-o-maior-nome-do-futebol-feminino-brasileiro-antes-de-marta.phtml
 (200),https://timetravel.mementoweb.org/list/20161204/http://www.sports-reference.com/olympics/countries/BRA/summer/1996/FTB/
 (403),https://us.women.soccerway.com/players/sisleide-lima-do-amor/83298/
-(ERROR),https://vincisports.com.br/atleta/130/maria-luiza-schwaizer
+"((ERROR) HTTPSConnectionPool(host='vincisports.com.br', port=443): Max retries exceeded with url: /atleta/130/maria-luiza-schwaizer (Caused by NameResolutionError(""<urllib3.connection.HTTPSConnection object at 0x000001DE57074D10>: Failed to resolve 'vincisports.com.br' ([Errno 11001] getaddrinfo failed)"")))",https://vincisports.com.br/atleta/130/maria-luiza-schwaizer
 (200),https://web.archive.org/web/20120801072900/http://timebrasil.cob.org.br/atletas/miraildes-maciel-mota
 (200),https://web.archive.org/web/20131213023519/http://www.americadenatal.com.br/futebol/formiga-se-apresenta-e-diz-estar-pronta-para-mais-um-desafio-1289/
 (200),https://web.archive.org/web/20160304042042/http://www.sintrefutrj.com.br/historiafutfemininoandrea.pdf
@@ -77,21 +77,21 @@ Status Code,URL
 (200),https://www.brightonandhovealbion.com/teams/womens-team/players/64919/kirsty-barton?selectcompetition=-1
 (200),https://www.cacador.net/noticias/esporte/2012/10/05/futebol-feminino-selecao-brasileira-sub-17-e-eliminada-do-mundial-20224
 (200),https://www.capitalnews.com.br/brasil/ms-saad-vai-brigar-pelo-bi-campeonato-da-copa-do-brasil-de-futebol-feminino/78261
-(ERROR),https://www.cbf.com.br/amp/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/bia-zaneratto-e-eleita-a-jogadora-do-mes-de-maio-do-brasileirao-femini
-(ERROR),https://www.cbf.com.br/amp/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/premio-brasileirao-2021-bia-zaneratto-do-palmeiras-melhor-atacante
-(ERROR),https://www.cbf.com.br/amp/selecao-brasileira/noticias/selecao-feminina/pia-sundhage-convocada-selecao-feminina-para-os-jogos-olimpicos
-(ERROR),https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/bia-zaneratto-e-eleita-a-jogadora-do-mes-de-maio-do-brasileirao-femini
-(ERROR),https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/bia-zaneratto-estreia-com-gol-e-vitoria-pelo-palmeiras
-(ERROR),https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/final-historica-do-brasileirao-feminino-neoenergia-consolida-evolucao
-(ERROR),https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/premio-brasileirao-2020-julia-bianchi-melhor-volante-do-brasileiro-f
-(ERROR),https://www.cbf.com.br/futebol-brasileiro/noticias/copa-brasil-feminino/chu-santos-confianca-para-disputar-a-competicao
-(ERROR),https://www.cbf.com.br/selecao-brasileira/noticias/selecao-base-feminina/julia-bianchi-da-sub-17-a-sub-20
-(ERROR),https://www.cbf.com.br/selecao-brasileira/noticias/selecao-base-feminina/julia-bianchi-e-a-unica-veterana-no-mundial-sub-20
-(ERROR),https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/chu-primeira-vez-na-principal
-(ERROR),https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/julia-bianchi-comemora-gol-em-primeiro-jogo-pela-selecao-principal-an
-(ERROR),https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/pia-sundhage-convocada-selecao-feminina-para-os-jogos-olimpicos
-(ERROR),https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/selecao-brasileira-feminina-convocada-para-torneio-she-believes
-(ERROR),https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/sub-17-feminina-convocada-para-o-mundial
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /amp/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/bia-zaneratto-e-eleita-a-jogadora-do-mes-de-maio-do-brasileirao-femini (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/amp/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/bia-zaneratto-e-eleita-a-jogadora-do-mes-de-maio-do-brasileirao-femini
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /amp/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/premio-brasileirao-2021-bia-zaneratto-do-palmeiras-melhor-atacante (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/amp/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/premio-brasileirao-2021-bia-zaneratto-do-palmeiras-melhor-atacante
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /amp/selecao-brasileira/noticias/selecao-feminina/pia-sundhage-convocada-selecao-feminina-para-os-jogos-olimpicos (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/amp/selecao-brasileira/noticias/selecao-feminina/pia-sundhage-convocada-selecao-feminina-para-os-jogos-olimpicos
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /futebol-brasileiro/noticias/campeonato-brasileiro-feminino/bia-zaneratto-e-eleita-a-jogadora-do-mes-de-maio-do-brasileirao-femini (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/bia-zaneratto-e-eleita-a-jogadora-do-mes-de-maio-do-brasileirao-femini
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /futebol-brasileiro/noticias/campeonato-brasileiro-feminino/bia-zaneratto-estreia-com-gol-e-vitoria-pelo-palmeiras (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/bia-zaneratto-estreia-com-gol-e-vitoria-pelo-palmeiras
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /futebol-brasileiro/noticias/campeonato-brasileiro-feminino/final-historica-do-brasileirao-feminino-neoenergia-consolida-evolucao (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/final-historica-do-brasileirao-feminino-neoenergia-consolida-evolucao
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /futebol-brasileiro/noticias/campeonato-brasileiro-feminino/premio-brasileirao-2020-julia-bianchi-melhor-volante-do-brasileiro-f (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro-feminino/premio-brasileirao-2020-julia-bianchi-melhor-volante-do-brasileiro-f
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /futebol-brasileiro/noticias/copa-brasil-feminino/chu-santos-confianca-para-disputar-a-competicao (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/futebol-brasileiro/noticias/copa-brasil-feminino/chu-santos-confianca-para-disputar-a-competicao
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /selecao-brasileira/noticias/selecao-base-feminina/julia-bianchi-da-sub-17-a-sub-20 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/selecao-brasileira/noticias/selecao-base-feminina/julia-bianchi-da-sub-17-a-sub-20
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /selecao-brasileira/noticias/selecao-base-feminina/julia-bianchi-e-a-unica-veterana-no-mundial-sub-20 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/selecao-brasileira/noticias/selecao-base-feminina/julia-bianchi-e-a-unica-veterana-no-mundial-sub-20
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /selecao-brasileira/noticias/selecao-feminina/chu-primeira-vez-na-principal (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/chu-primeira-vez-na-principal
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /selecao-brasileira/noticias/selecao-feminina/julia-bianchi-comemora-gol-em-primeiro-jogo-pela-selecao-principal-an (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/julia-bianchi-comemora-gol-em-primeiro-jogo-pela-selecao-principal-an
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /selecao-brasileira/noticias/selecao-feminina/pia-sundhage-convocada-selecao-feminina-para-os-jogos-olimpicos (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/pia-sundhage-convocada-selecao-feminina-para-os-jogos-olimpicos
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /selecao-brasileira/noticias/selecao-feminina/selecao-brasileira-feminina-convocada-para-torneio-she-believes (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/selecao-brasileira-feminina-convocada-para-torneio-she-believes
+"((ERROR) HTTPSConnectionPool(host='www.cbf.com.br', port=443): Max retries exceeded with url: /selecao-brasileira/noticias/selecao-feminina/sub-17-feminina-convocada-para-o-mundial (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)'))))",https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/sub-17-feminina-convocada-para-o-mundial
 (200),https://www.conmebol.com/pt-br/noticias-pt-br-2/ferroviaria-sagra-se-campea-da-copa-libertadores-da-america-feminina-2015/
 (200),https://www.corinthians.com.br/noticias/ver/60537
 (404),https://www.dailybreeze.com/sports/ci_12896074
@@ -126,14 +126,14 @@ Status Code,URL
 (200),https://www.ogol.com.br/player.php?id=727430
 (200),https://www.ogol.com.br/player_titles.php?id=433300
 (200),https://www.olympedia.org/statistics/age
-(ERROR),https://www.palmeiras.com.br/jogadoras/?jogadora=184467
-(ERROR),https://www.palmeiras.com.br/noticias/historico-palestrinas-superam-boca-juniors-e-conquistam-titulo-inedito-da-libertadores-feminina/
-(ERROR),https://www.palmeiras.com.br/noticias/palmeiras-acerta-contratacao-da-goleira-taty-amaro-para-o-time-feminino/
-(ERROR),https://www.palmeiras.com.br/noticias/palmeiras-anuncia-mais-tres-reforcos-para-o-time-feminino-em-2021/
-(ERROR),https://www.palmeiras.com.br/noticias/palmeiras-marca-presenca-na-copa-america-feminina-com-representantes-em-duas-selecoes/
-(ERROR),https://www.palmeiras.com.br/noticias/verdao-contrata-a-atacante-bia-zaneratto-e-acerta-renovacoes-para-a-temporada-2022/
+"((ERROR) ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))",https://www.palmeiras.com.br/jogadoras/?jogadora=184467
+"((ERROR) ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))",https://www.palmeiras.com.br/noticias/historico-palestrinas-superam-boca-juniors-e-conquistam-titulo-inedito-da-libertadores-feminina/
+"((ERROR) ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))",https://www.palmeiras.com.br/noticias/palmeiras-acerta-contratacao-da-goleira-taty-amaro-para-o-time-feminino/
+"((ERROR) ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))",https://www.palmeiras.com.br/noticias/palmeiras-anuncia-mais-tres-reforcos-para-o-time-feminino-em-2021/
+"((ERROR) ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))",https://www.palmeiras.com.br/noticias/palmeiras-marca-presenca-na-copa-america-feminina-com-representantes-em-duas-selecoes/
+"((ERROR) ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))",https://www.palmeiras.com.br/noticias/verdao-contrata-a-atacante-bia-zaneratto-e-acerta-renovacoes-para-a-temporada-2022/
 (200),https://www.playmakerstats.com/player.php?id=432967
-(ERROR),https://www.prefeitura.sp.gov.br/cidade/secretarias/esportes/noticias/?p=33204
+"((ERROR) HTTPSConnectionPool(host='www.prefeitura.sp.gov.br', port=443): Max retries exceeded with url: /cidade/secretarias/esportes/noticias/?p=33204 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001DE57076AB0>, 'Connection to www.prefeitura.sp.gov.br timed out. (connect timeout=5)')))",https://www.prefeitura.sp.gov.br/cidade/secretarias/esportes/noticias/?p=33204
 (200),https://www.rsssf.org/tabless/sam-women95.html
 (200),https://www.rsssf.org/tabless/sam-women98.html
 (200),https://www.skysports.com/football/player/164096/kirsty-barton
@@ -153,8 +153,8 @@ Status Code,URL
 (200),https://www.thereporter.com/2019/12/04/hall-of-fame-soccer-player-sissi-reflects-on-career-coaching-at-solano-college/
 (404),https://www.torcedores.com/noticias/2017/08/byanca-brasil-corinthians-audax
 (404),https://www.torcedores.com/noticias/2018/02/byanca-brasil-apresentada-clube-china
-(ERROR),https://www.uefa.com/teamsandplayers/players/player=250107154/profile
-(ERROR),https://www.uefa.com/teamsandplayers/players/player=250107798/profile
+"((ERROR) HTTPSConnectionPool(host='www.uefa.com', port=443): Read timed out. (read timeout=5))",https://www.uefa.com/teamsandplayers/players/player=250107154/profile
+"((ERROR) HTTPSConnectionPool(host='www.uefa.com', port=443): Read timed out. (read timeout=5))",https://www.uefa.com/teamsandplayers/players/player=250107798/profile
 (200),https://www.uol.com.br/esporte/futebol/ultimas-noticias/2019/06/09/formiga-chega-a-7-copa-e-bate-recorde-entre-mulheres-e-homens-no-futebol.htm
 (200),https://www.uol.com.br/esporte/futebol/ultimas-noticias/2022/07/30/brasil-colombia-copa-america-feminina.htm
 (200),https://www.uol.com.br/esporte/futebol/ultimas-noticias/gazeta-esportiva/2021/11/07/palmeiras-e-bicampeao-da-copa-paulista-feminina.amp.htm
