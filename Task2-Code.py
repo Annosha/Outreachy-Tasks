@@ -1,69 +1,134 @@
 import csv
-import requests
-import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
+import logging
+import asyncio
+import aiohttp
+from urllib.parse import urlparse
 
-RETRY_STATUS_CODES = {429, 503}
+# --- Configuration ---
+CSV_FILE = "Task 2 - Intern.csv"  # Input CSV file containing URLs 
+CONCURRENCY_LIMIT = 10            # Max number of concurrent requests
+RETRY_STATUS_CODES = {429, 503}   # Retry for these HTTP status codes (rate limit or unavailable)
+MAX_RETRIES = 3                   # Retries to handle temporary issues like rate limiting, timeouts, or service unavailability.
+RETRY_DELAY = 2                   # Delay between retries (in seconds)
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 
-def get_status_with_retry(url, retries=3):
+# --- Logging Setup ---
+# Configure logging to show only the message (no timestamps or levels)
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
+
+# --- Helper: Check if URL is valid ---
+def check_valid_url(url):
     """
-    Sends a GET request to the specified URL and retrieves its HTTP status code.
-    Retries if status code is retry-able (e.g., 429, 503) or on request exceptions 
-    and uses a 'User-Agent' header to mimic a real browser to avoid blocks.
-
-    Returns:
-        Tuple: (status_code or full error message, url)
+    Check whether a URL has both a scheme (http/https) and a network location (domain).
     """
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+    parsed = urlparse(url)
+    return bool(parsed.netloc) and bool(parsed.scheme)
+
+# --- Retry logic for fetching a URL ---
+async def fetch_with_retry(session, url):
+    """
+    Attempt to fetch the URL using retries if it fails or returns specific retr-able status codes.
+    Returns a dict with URL, status code (or 'ERROR'), and error type if any.
+    """
+    headers = {"User-Agent": USER_AGENT}
+    last_status_code = None
+    last_error_type = "UnknownError"
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            # Make async HTTP GET request
+            async with session.get(url, headers=headers, allow_redirects=True, timeout=10) as response:
+                last_status_code = response.status
+                # Retry for specific HTTP codes like 429 (rate-limiting) or 503 (service unavailable)
+                if response.status in RETRY_STATUS_CODES:
+                    logger.warning(f"[Retrying] ({response.status}) {url} - attempt {attempt}")
+                    await asyncio.sleep(RETRY_DELAY)
+                    continue
+                # Log successful response
+                logger.info(f"({response.status}) {url}")
+                return {"URL": url, "Status": response.status, "Error": ""}
+            # Handle specific exceptions to identify the type of error that occurred
+        except aiohttp.ClientResponseError as e:
+            last_error_type = f"ClientResponseError ({e.status})"
+        except aiohttp.ClientConnectorError as e:
+            last_error_type = "ClientConnectorError"
+        except aiohttp.ClientPayloadError as e:
+            last_error_type = "ClientPayloadError"
+        except asyncio.TimeoutError:
+            last_error_type = "TimeoutError"
+        except Exception as e:
+            last_error_type = type(e).__name__
+
+        # Log retry on exception
+        logger.warning(f"[Retrying] (Exception) {url} - {last_error_type}, attempt {attempt}")
+        await asyncio.sleep(RETRY_DELAY)
+
+    # If all retries failed, return with error details
+    return {
+        "URL": url,
+        "Status": last_status_code if last_status_code else "ERROR",
+        "Error": last_error_type,
     }
 
-    for attempt in range(retries):
-        try:
-            response = requests.get(url, headers=headers, allow_redirects=True, timeout=5)
-            if response.status_code in RETRY_STATUS_CODES:
-                print(f"[Retrying] {url} returned {response.status_code}, attempt {attempt + 1}")
-                time.sleep(2)
-                continue
-            return (response.status_code, url)
-        except requests.RequestException as e:
-            error_message = f"ERROR: {type(e).__name__} - {str(e)}"
-            print(f"[Retrying] {url} failed due to: {error_message}, attempt {attempt + 1}")
-            time.sleep(2)
-
-    return (error_message if 'error_message' in locals() else "ERROR: Unknown", url)
-
-
-def get_status_codes(input_csv, output_csv, max_threads=10):
+# --- Wrapper with semaphore control ---
+async def fetch_url_with_limit(sem, session, url):
     """
-    Reads URLs from a CSV file, fetches their HTTP status codes using multithreading,
-    and writes the results to another CSV file.
-
-    Args:
-        input_csv (str): Path to the input CSV with URLs.
-        output_csv (str): Path to write the results.
-        max_threads (int): Number of threads to use for concurrent requests.
+    Use a semaphore to limit the number of concurrent fetches.
     """
-    with open(input_csv, newline='', encoding='utf-8') as file:
-        reader = csv.reader(file)
-        next(reader)  # Skip header
-        urls = [row[0] for row in reader if row and row[0].strip()]
+    async with sem:
+        return await fetch_with_retry(session, url)
 
+# --- Read CSV, check validity, and fetch status ---
+async def process_urls_from_csv(filename):
+    """
+    Read URLs from a CSV file, validate them, and asynchronously fetch their status.
+    Returns a list of result dictionaries for each URL.
+    """
     results = []
-    with ThreadPoolExecutor(max_workers=max_threads) as executor:
-        future_to_url = {executor.submit(get_status_with_retry, url): url for url in urls}
-        for future in as_completed(future_to_url):
-            result = future.result()
-            results.append(result)
-            print(f"({result[0]}) {result[1]}")
 
-    with open(output_csv, mode='w', newline='', encoding='utf-8') as out_file:
-        writer = csv.writer(out_file)
-        writer.writerow(["Status Code or Error", "URL"])
-        writer.writerows([(f"({status})", url) for status, url in results])
+    # Read URLs from the CSV
+    with open(filename, newline='', encoding='utf-8') as csvfile:
+        reader = csv.reader(csvfile)
+        header = next(reader, None)  # Skip header
+        if not header:
+            raise ValueError("CSV file is missing a header")
+        urls = [row[0].strip() for row in reader if row and row[0].strip()]
 
+    valid_urls = []
+    for url in urls:
+        if check_valid_url(url):
+            valid_urls.append(url)
+        else:
+            # Handle invalid or empty URLs
+            error = "Invalid URL format" if url else "Empty URL"
+            logger.warning(f"[Invalid] {url} - {error}")
+            print(f"[Invalid] {url} - {error}")
+            results.append({"URL": url, "Status": "Invalid", "Error": error})
 
-# --- Run the script ---
-input_csv_path = "Task 2 - Intern.csv"
-output_csv_path = "output_status.csv"
-get_status_codes(input_csv_path, output_csv_path)
+    # Set up concurrency limit
+    sem = asyncio.Semaphore(CONCURRENCY_LIMIT)
+    async with aiohttp.ClientSession() as session:
+        tasks = [fetch_url_with_limit(sem, session, url) for url in valid_urls]
+        responses = await asyncio.gather(*tasks)
+        results.extend(responses)
+
+    return results
+
+# --- Write final results to output CSV ---
+def write_to_csv_file(url_results, filename="result_logs.csv"):
+    """
+    Write the results (status, URL, error) to a new CSV file.
+    """
+    with open(filename, "w", newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["Status Code or Error", "URL", "Error"])  # Header row
+        for row in url_results:
+            writer.writerow([row["Status"], row["URL"], row["Error"]])
+
+# --- Main Entry Point ---
+if __name__ == "__main__":
+    # Run the async processing and write results to CSV
+    url_results = asyncio.run(process_urls_from_csv(CSV_FILE))
+    write_to_csv_file(url_results)
+    print(f"\n Total {len(url_results)} URLs checked and results stored in result_logs.csv")
