@@ -1,16 +1,17 @@
 import csv
-import logging
-import asyncio
-import aiohttp
-from urllib.parse import urlparse
+import logging  # For logging warnings and status messages
+import asyncio  # Core library for async programming
+import aiohttp  # Asynchronous HTTP client
+from urllib.parse import urlparse   # To validate URL format
 
 # --- Configuration ---
-CSV_FILE = "Task2_Intern.csv"  # Input CSV file containing URLs 
+CSV_FILE = "Task 2\Task2_Intern.csv"  # Input CSV file containing URLs 
 CONCURRENCY_LIMIT = 10            # Max number of concurrent requests
 RETRY_STATUS_CODES = {429, 503}   # Retry for these HTTP status codes (rate limit or unavailable)
 MAX_RETRIES = 3                   # Retries to handle temporary issues like rate limiting, timeouts, or service unavailability.
 RETRY_DELAY = 2                   # Delay between retries (in seconds)
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+TIMEOUT_SECONDS = 50              # Older government sites and slower server e.g. academic journals take longer to respond
 
 # --- Logging Setup ---
 # Configure logging to show only the message (no timestamps or levels)
@@ -26,6 +27,7 @@ def check_valid_url(url):
     return bool(parsed.netloc) and bool(parsed.scheme)
 
 # --- Retry logic for fetching a URL ---
+# --- Retry logic for fetching a URL ---
 async def fetch_with_retry(session, url):
     """
     Attempt to fetch the URL using retries if it fails or returns specific retr-able status codes.
@@ -34,42 +36,61 @@ async def fetch_with_retry(session, url):
     headers = {"User-Agent": USER_AGENT}
     last_status_code = None
     last_error_type = "UnknownError"
+    last_error_message = ""
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            # Make async HTTP GET request
-            async with session.get(url, headers=headers, allow_redirects=True, timeout=10) as response:
-                last_status_code = response.status
-                # Retry for specific HTTP codes like 429 (rate-limiting) or 503 (service unavailable)
-                if response.status in RETRY_STATUS_CODES:
-                    logger.warning(f"[Retrying] ({response.status}) {url} - attempt {attempt}")
-                    await asyncio.sleep(RETRY_DELAY)
-                    continue
-                # Log successful response
-                logger.info(f"({response.status}) {url}")
-                return {"URL": url, "Status": response.status, "Error": ""}
-            # Handle specific exceptions to identify the type of error that occurred
+            # Default: verify SSL
+            try:
+                async with session.get(url, headers=headers, ssl=True, allow_redirects=True, timeout=TIMEOUT_SECONDS) as response:
+                    last_status_code = response.status
+                    # Retry for specific HTTP codes like 429 (rate-limiting) or 503 (service unavailable)
+                    if response.status in RETRY_STATUS_CODES:
+                        logger.warning(f"[Retrying] ({response.status}) {url} - attempt {attempt}")
+                        await asyncio.sleep(RETRY_DELAY)
+                        continue
+                    # Log successful response
+                    logger.info(f"({response.status}) {url}")
+                    return {"URL": url, "Status": response.status, "Error": ""}
+            except aiohttp.ClientConnectorCertificateError:
+                # Fallback for SSL certificate error
+                logger.warning(f"[SSL Warning] Invalid cert for {url}, retrying without SSL verification.")
+                async with session.get(url, headers=headers, ssl=False, allow_redirects=True, timeout=TIMEOUT_SECONDS) as response:
+                    last_status_code = response.status
+                    if response.status in RETRY_STATUS_CODES:
+                        logger.warning(f"[Retrying] ({response.status}) {url} - attempt {attempt}")
+                        await asyncio.sleep(RETRY_DELAY)
+                        continue
+                    logger.info(f"({response.status}) {url}")
+                    return {"URL": url, "Status": response.status, "Error": "SSL certificate verification disabled"}
+        # Handle specific exceptions to identify the type of error that occurred
         except aiohttp.ClientResponseError as e:
             last_error_type = f"ClientResponseError ({e.status})"
+            last_error_message = str(e)
         except aiohttp.ClientConnectorError as e:
             last_error_type = "ClientConnectorError"
+            last_error_message = str(e)
         except aiohttp.ClientPayloadError as e:
             last_error_type = "ClientPayloadError"
+            last_error_message = str(e)
         except asyncio.TimeoutError:
             last_error_type = "TimeoutError"
+            last_error_message = "The request timed out"
         except Exception as e:
             last_error_type = type(e).__name__
+            last_error_message = str(e)
 
         # Log retry on exception
-        logger.warning(f"[Retrying] (Exception) {url} - {last_error_type}, attempt {attempt}")
+        logger.warning(f"[Retrying] (Exception) {url} - {last_error_type}: {last_error_message}, attempt {attempt}")
         await asyncio.sleep(RETRY_DELAY)
 
     # If all retries failed, return with error details
     return {
         "URL": url,
         "Status": last_status_code if last_status_code else "ERROR",
-        "Error": last_error_type,
+        "Error": f"{last_error_type}: {last_error_message}",
     }
+
 
 # --- Wrapper with semaphore control ---
 async def fetch_url_with_limit(sem, session, url):
