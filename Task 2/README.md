@@ -17,10 +17,7 @@ This project an efficient and scalable **asynchronous URL status checker** built
 - [✅ Output Format](#-output-format)
 - [🧪 Error Handling](#-error-handling)
 - [🔧 Configuration Options](#-configuration-options)
-- [🧠 Future Improvements](#-future-improvements)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
-- [📬 Contact](#-contact)
+- [🚀 How Async Concurrency Works in This Project](#-how-async-concurrency-works-in-this-project)
 
 ---
 
