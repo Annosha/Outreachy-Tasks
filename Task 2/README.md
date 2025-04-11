@@ -18,7 +18,7 @@ This project an efficient and scalable **asynchronous URL status checker** built
 - [🧪 Error Handling](#-error-handling)
 - [🔧 Configuration Options](#-configuration-options)
 - [🚀 How Async Concurrency Works in This Project](#-how-async-concurrency-works-in-this-project)
-
+- [⚙️ Multithreading with ThreadPoolExecutor](-multithreading-with-threadpoolexecutor)
 ---
 
 ## 📘 Project Description
@@ -183,7 +183,7 @@ Traditional HTTP requests (with `requests` module) are blocking — meaning one 
 This structure ensures high throughput while being respectful of server limits.
 
 ---
-### Multithreading with ThreadPoolExecutor
+### ⚙️ Multithreading with ThreadPoolExecutor
 
 For simple and effective parallel processing of HTTP requests using requests, multithreading offers an easy, compatible, and practical solution. While asyncio is great for large-scale async tasks, it introduces complexity and requires non-blocking libraries—which may not be ideal in all situations.
 
