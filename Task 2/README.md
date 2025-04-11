@@ -64,8 +64,8 @@ This tool is ideal for tasks involving bulk URL health checks, uptime monitoring
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/async-url-status-checker.git
-cd async-url-status-checker
+git clone https://github.com/Annosha/Outreachy-Tasks.git
+cd Outreachy-Tasks
 ```
 
 ### 2. Create a Virtual Environment (Optional but Recommended)
