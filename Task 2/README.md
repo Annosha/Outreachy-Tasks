@@ -172,7 +172,7 @@ This script leverages Python’s **`asyncio`** and **`aiohttp`** libraries to ma
 
 Traditional HTTP requests (with `requests` module) are blocking — meaning one request must complete before the next starts. With `asyncio`, your script can **send and await multiple requests at once**, improving performance dramatically, especially with large URL lists.
 
-### ⚙️ Breakdown of Concurrency Flow
+### 📊 Breakdown of Concurrency Flow
 
 - `asyncio.Semaphore(CONCURRENCY_LIMIT)`: Prevents exceeding the specified limit (e.g., 10 concurrent requests).
 - `aiohttp.ClientSession()`: Maintains connection pooling and reduces request overhead.
