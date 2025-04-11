@@ -5,7 +5,7 @@ import aiohttp
 from urllib.parse import urlparse
 
 # --- Configuration ---
-CSV_FILE = "Task 2 - Intern.csv"  # Input CSV file containing URLs 
+CSV_FILE = "Task2_Intern.csv"  # Input CSV file containing URLs 
 CONCURRENCY_LIMIT = 10            # Max number of concurrent requests
 RETRY_STATUS_CODES = {429, 503}   # Retry for these HTTP status codes (rate limit or unavailable)
 MAX_RETRIES = 3                   # Retries to handle temporary issues like rate limiting, timeouts, or service unavailability.
