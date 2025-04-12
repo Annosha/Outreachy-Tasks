@@ -18,7 +18,7 @@ This project an efficient and scalable **asynchronous URL status checker** built
 - [🧪 Error Handling](#-error-handling)
 - [🔧 Configuration Options](#-configuration-options)
 - [🚀 How Async Concurrency Works in This Project](#-how-async-concurrency-works-in-this-project)
-- [⚙️ Multithreading with ThreadPoolExecutor](-multithreading-with-threadpoolexecutor)
+- [⚙️ Multithreading with ThreadPoolExecutor](#-multithreading-with-threadpoolexecutor)
 ---
 
 ## 📘 Project Description
