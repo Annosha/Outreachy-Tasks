@@ -14,14 +14,14 @@ ERROR,http://sportsillustrated.cnn.com/soccer/wusa/2001/championship/news/2001/0
 ERROR,http://www.femininodobrasil.com/2017/02/chu-santos-uma-jogadora-completa.html,ClientConnectorError: Cannot connect to host www.femininodobrasil.com:80 ssl:default [getaddrinfo failed]
 ERROR,http://www.futeboldabahia.com.br/Feminino.html,ClientConnectorError: Cannot connect to host www.futeboldabahia.com.br:80 ssl:default [getaddrinfo failed]
 200,http://www.periodicos.letras.ufmg.br/index.php/fulia/issue/view/677/showToc,
-404,http://www.saadec.com.br/noticiamostra.php?id=223,
+200,http://www.saadec.com.br/noticiamostra.php?id=223,
 200,http://www.saopaulofc.net/spfcpedia/conquistas,
 200,http://www.wpsl.info/news/04_0121.html,
 200,https://agenciabrasil.ebc.com.br/esportes/noticia/2020-02/bia-zaneratto-chega-ao-palmeiras-em-momento-magico-do-futebol-feminino,
 200,https://avai.com.br/novo/julia-bianchi-dedicou-primeiro-gol-do-brasileirao-2020-ao-avo/,
 200,https://br.search.yahoo.com/?fr2=p:sportsrd,
 200,https://claudia.abril.com.br/famosos/conheca-formiga-a-jogadora-recordista-em-copas-da-selecao-brasileira/,
-200,https://dados.museudofutebol.org.br/#/tipo:personalidades/614464,SSL certificate verification disabled
+ERROR,https://dados.museudofutebol.org.br/#/tipo:personalidades/614464,ClientConnectorError: Cannot connect to host crfb.museudofutebol.org:443 ssl:default [The specified network name is no longer available]
 200,https://diariodoverdao.com.br/palmeirenses-fazem-campanha-por-volta-de-bia-zaneratto-que-esta-sem-clube/,
 200,https://dibradoras.blogosfera.uol.com.br/2019/08/22/da-roca-para-a-selecao-quem-e-maravilha-1a-preparadora-de-goleiras-da-cbf/,
 200,https://dibradoras.com.br/2020/12/05/time-de-tradicao-no-feminino-avai-kindermann-tem-craques-formadas-em-casa/,
@@ -132,8 +132,8 @@ ERROR,https://www.palmeiras.com.br/noticias/palmeiras-acerta-contratacao-da-gole
 ERROR,https://www.palmeiras.com.br/noticias/palmeiras-anuncia-mais-tres-reforcos-para-o-time-feminino-em-2021/,ServerDisconnectedError: Server disconnected
 ERROR,https://www.palmeiras.com.br/noticias/palmeiras-marca-presenca-na-copa-america-feminina-com-representantes-em-duas-selecoes/,ServerDisconnectedError: Server disconnected
 ERROR,https://www.palmeiras.com.br/noticias/verdao-contrata-a-atacante-bia-zaneratto-e-acerta-renovacoes-para-a-temporada-2022/,ServerDisconnectedError: Server disconnected
-429,https://www.playmakerstats.com/player.php?id=432967,UnknownError: 
-ERROR,https://www.prefeitura.sp.gov.br/cidade/secretarias/esportes/noticias/?p=33204,ClientConnectorError: Cannot connect to host www.prefeitura.sp.gov.br:443 ssl:default [The semaphore timeout period has expired]
+200,https://www.playmakerstats.com/player.php?id=432967,
+ERROR,https://www.prefeitura.sp.gov.br/cidade/secretarias/esportes/noticias/?p=33204,ClientConnectorError: Cannot connect to host www.prefeitura.sp.gov.br:443 ssl:default [The specified network name is no longer available]
 200,https://www.rsssf.org/tabless/sam-women95.html,
 200,https://www.rsssf.org/tabless/sam-women98.html,
 200,https://www.skysports.com/football/player/164096/kirsty-barton,
