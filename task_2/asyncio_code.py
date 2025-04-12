@@ -5,7 +5,7 @@ import aiohttp  # Asynchronous HTTP client
 from urllib.parse import urlparse   # To validate URL format
 
 # --- Configuration ---
-CSV_FILE = "Task 2/input_urls.csv"  # Input CSV file containing URLs 
+CSV_FILE = "task_2/input_urls.csv"  # Input CSV file containing URLs 
 CONCURRENCY_LIMIT = 10            # Max number of concurrent requests
 RETRY_STATUS_CODES = {429, 503}   # Retry for these HTTP status codes (rate limit or unavailable)
 MAX_RETRIES = 3                   # Retries to handle temporary issues like rate limiting, timeouts, or service unavailability.
@@ -137,7 +137,7 @@ async def process_urls_from_csv(filename):
     return results
 
 # --- Write final results to output CSV ---
-def write_to_csv_file(url_results, filename="Task 2/output_asyncio.csv"):
+def write_to_csv_file(url_results, filename="task_2/output_asyncio.csv"):
     """
     Write the results (status, URL, error) to a new CSV file.
     """

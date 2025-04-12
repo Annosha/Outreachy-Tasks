@@ -81,9 +81,22 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 4. Add Your Input CSV
+### 4. Run the code
 
-Place your file e.g. `Task2_Intern.csv` in the project root with the first column containing the URLs.
+---
+For asyncio code:
+
+```bash
+python3 asyncio_code.py
+```
+
+and for multithreading code:
+
+```bash
+python3 multithreading_code.py
+```
+
+---
 
 ## 📦 Dependencies
 
@@ -98,31 +111,37 @@ aiohttp>=3.8.0
 
 ## 🧠 What This Code Does
 
-- **Reads a list of URLs** from an input CSV file (`Task2_Intern.csv`)
+- **Reads a list of URLs** from an input CSV file (`input_urls.csv`)
 - **Validates URLs** to ensure proper formatting
 - **Performs asynchronous HTTP requests** using `aiohttp` with retries for failures
 - **Handles rate-limiting (429) and service unavailability (503)** with retry logic
 - **Logs status codes or error types** for each URL
 - **Limits concurrency** to avoid overwhelming network resources
 - **Retry Logic** Automatically retries failed requests (due to rate-limiting or temporary outages).
-- **Writes results** (URL, status, error type) to a new file `result_logs.csv`
+- **Writes results** (URL, status, error type) to a new file `output_asyncio.csv` and `output_multithreading.csv`
 
 ---
 
 ## 📁 File Structure
 
 ```bash
-.
-├── url_status_checker.py       # Main async script
-├── Task 2 - Intern.csv         # Input CSV file (user provided)
-├── result_logs.csv             # Output with status results
-├── requirements.txt            # Python dependencies
-└── README.md                   # Project documentation
+├── .gitignore 
+├── README.md 
+├── task_1 
+│ └── task1_code.html           # Task 1 script
+├── task_2
+ │ ├── README.md                # Script description
+ │ ├── asyncio_code.py          # async script
+ │ ├── input_urls.csv           # input urls
+ │ ├── multithreading_code.py   # multithreading script
+ │ ├── output_asyncio.csv       # Output with status results
+ │ ├── output_multithreading.csv # Output with status results
+ │ └── requirements.txt
 ```
 
 ## 📄 Input Format
 
-CSV file: `Task2_Intern.csv`
+CSV file: `input_urls.csv`
 
 ```bash
 URL
@@ -133,7 +152,7 @@ https://invalid-url
 
 ## ✅ Output Format
 
-CSV file: `result_logs.csv`
+CSV file: `output_asyncio.csv`
 
 ```bash
 Status Code or Error,URL,Error
@@ -155,7 +174,7 @@ Invalid,htp:/example,Invalid URL format
 
 ## 🔧 Configuration Options
 
-You can edit these constants in `Task2-Code.py`:
+You can edit these constants in `asyncio_code.py`:
 
 ```bash
 MAX_RETRIES = 3
@@ -187,4 +206,4 @@ This structure ensures high throughput while being respectful of server limits.
 
 For simple and effective parallel processing of HTTP requests using requests, multithreading offers an easy, compatible, and practical solution. While asyncio is great for large-scale async tasks, it introduces complexity and requires non-blocking libraries—which may not be ideal in all situations.
 
-Here is the link to the code where I implemented multithreading: [Multithreading](https://github.com/Annosha/Outreachy-Tasks/blob/main/Task%202/multithreading.py)
+Here is the link to the code where I implemented multithreading: [Multithreading](task_2\multithreading)

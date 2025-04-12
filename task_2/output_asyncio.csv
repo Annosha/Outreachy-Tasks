@@ -133,7 +133,7 @@ ERROR,https://www.palmeiras.com.br/noticias/palmeiras-anuncia-mais-tres-reforcos
 ERROR,https://www.palmeiras.com.br/noticias/palmeiras-marca-presenca-na-copa-america-feminina-com-representantes-em-duas-selecoes/,ServerDisconnectedError: Server disconnected
 ERROR,https://www.palmeiras.com.br/noticias/verdao-contrata-a-atacante-bia-zaneratto-e-acerta-renovacoes-para-a-temporada-2022/,ServerDisconnectedError: Server disconnected
 200,https://www.playmakerstats.com/player.php?id=432967,
-ERROR,https://www.prefeitura.sp.gov.br/cidade/secretarias/esportes/noticias/?p=33204,ClientConnectorError: Cannot connect to host www.prefeitura.sp.gov.br:443 ssl:default [The specified network name is no longer available]
+ERROR,https://www.prefeitura.sp.gov.br/cidade/secretarias/esportes/noticias/?p=33204,ClientConnectorError: Cannot connect to host www.prefeitura.sp.gov.br:443 ssl:default [The semaphore timeout period has expired]
 200,https://www.rsssf.org/tabless/sam-women95.html,
 200,https://www.rsssf.org/tabless/sam-women98.html,
 200,https://www.skysports.com/football/player/164096/kirsty-barton,
