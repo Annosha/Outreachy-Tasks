@@ -79,7 +79,7 @@ def get_status_codes(input_csv, output_csv, max_threads=10):
 
 # --- Run the script ---
 input_csv_path = "Task 2/Task2_Intern.csv"
-output_csv_path = "output_status.csv"
+output_csv_path = "Task 2/output_multithreading.csv"
 
 get_status_codes(input_csv_path, output_csv_path)
 print("✅ Results with detailed errors stored in output_status.csv")
