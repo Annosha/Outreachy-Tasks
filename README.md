@@ -30,7 +30,7 @@ This project an efficient and scalable **asynchronous URL status checker** built
 - [🧰 Prerequisites](#-prerequisites)
 - [⚙️ Setup](#️-setup)
 - [📦 Dependencies](#-dependencies)
-- [🚀 How It Works](#-how-it-works)
+- [🧠 What This Code Does](#-what-this-code-does)
 - [📁 File Structure](#-file-structure)
 - [📄 Input Format](#-input-format)
 - [✅ Output Format](#-output-format)
@@ -46,7 +46,7 @@ This project is a high-performance asynchronous status checker that efficiently 
 
 ### What it does:
 
-- Reads URLs from an input CSV file (`Task 2 - Intern.csv`)
+- Reads URLs from an input CSV file (`input_urls.csv`)
 - Validates URL structure
 - Makes concurrent HTTP requests using Python’s `asyncio` and `aiohttp`
 - Implements retry logic for common server errors (e.g., 429 and 503)
