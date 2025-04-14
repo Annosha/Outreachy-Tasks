@@ -131,7 +131,7 @@ aiohttp>=3.8.0
 - **Logs status codes or error types** for each URL
 - **Limits concurrency** to avoid overwhelming network resources
 - **Retry Logic** Automatically retries failed requests (due to rate-limiting or temporary outages).
-- **Writes results** (URL, status, error type) to a new file `output_asyncio.csv` and `output_multithreading.csv`
+- **Writes results** (URL, status, error type) to a new file `output_asyncio.csv`
 
 ---
 

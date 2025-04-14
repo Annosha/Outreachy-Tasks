@@ -18,7 +18,7 @@ This project an efficient and scalable **asynchronous URL status checker** built
 - [🧪 Error Handling](#-error-handling)
 - [🔧 Configuration Options](#-configuration-options)
 - [🚀 How Async Concurrency Works in This Project](#-how-async-concurrency-works-in-this-project)
-- [⚙️ Multithreading with ThreadPoolExecutor](#-multithreading-with-threadpoolexecutor)
+
 ---
 
 ## 📘 Project Description
@@ -90,12 +90,6 @@ For asyncio code:
 python3 asyncio_code.py
 ```
 
-and for multithreading code:
-
-```bash
-python3 multithreading_code.py
-```
-
 ---
 
 ## 📦 Dependencies
@@ -118,7 +112,7 @@ aiohttp>=3.8.0
 - **Logs status codes or error types** for each URL
 - **Limits concurrency** to avoid overwhelming network resources
 - **Retry Logic** Automatically retries failed requests (due to rate-limiting or temporary outages).
-- **Writes results** (URL, status, error type) to a new file `output_asyncio.csv` and `output_multithreading.csv`
+- **Writes results** (URL, status, error type) to a new file `output_asyncio.csv`
 
 ---
 
@@ -133,9 +127,7 @@ aiohttp>=3.8.0
  │ ├── README.md                # Script description
  │ ├── asyncio_code.py          # async script
  │ ├── input_urls.csv           # input urls
- │ ├── multithreading_code.py   # multithreading script
  │ ├── output_asyncio.csv       # Output with status results
- │ ├── output_multithreading.csv # Output with status results
  │ └── requirements.txt
 ```
 
